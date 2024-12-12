@@ -1,14 +1,29 @@
-# This program computes the area of a triangle
-# Input the three points of a triangle
-from math import sqrt
-x1, y1, x2, y2, x3, y3 = [float(XY123) for XY123 in (input("Enter three points for a triangle : ")).split(",")]
-# Assume a triangle ABC has vector AB, vector BC and vecto CA
-# These are the side of the triangle
-# Apply the vector method to solve this problem
-Side1 = sqrt((x2 - x1) ** 2 + (y2 - y1) ** 2)
-Side2 = sqrt((x3 - x2) ** 2 + (y3 - y2) ** 2)
-Side3 = sqrt((x1 - x3) ** 2 + (y1 - y3) ** 2)
-# Calculate using the given formula
-S = (Side1 + Side2 + Side3) / 2
-Area = sqrt(S * (S - Side1) * (S - Side2) * (S - Side3))
-print("The area of the triangle is", round(Area, 3))
+# This program computes the area of triangle using module
+import math
+
+
+def is_valid(side1, side2, side3):  # Define function to check numbers
+    # The sum of any two sides must greater than the third side
+    if (side1 + side2 > side3) and (side1 + side3 > side2) and (side2 + side3 > side1):
+        return True
+
+
+def area(side1, side2, side3):  # Define function for the formula
+    if is_valid(side1, side2, side3) is True:
+        s = (side1 + side2 + side3) / 2
+        area_triangle = math.sqrt(s * (s - side1) * (s - side2) * (s - side3))
+        return area_triangle
+
+
+def main():  # Define main function
+    print("Module: My Triangle")
+    # Input value
+    side1, side2, side3 = eval(input("Enter three sides in double: "))
+    if is_valid(side1, side2, side3) is not True:
+        print("Error: The input is invalid. Please try again")
+    else:
+        print("The area of the triangle is", area(side1, side2, side3))
+
+
+# Display the result
+main()

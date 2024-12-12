@@ -1,13 +1,21 @@
-# This program computes area of a regular polygon
-from math import tan, pi, radians
-# Input the number of sides and their length of a regular polygon
-N = int(input("Enter the number of sides: "))
-S = float(input("Enter the sides: "))
-if (N < 0) or (S < 0):
-    print("Error: You cannot enter a negative number. "
-          "Please proceed and try again")
-else:
-    # Computes using the given formula
-    Area = (N * (S ** 2)) / (4 * tan(pi / N))
-    # Display the result
-    print("The area of the polygon is", Area)
+# This program computes the area of a polygon using function
+from math import tan, pi
+
+
+def area(n, side):  # Define function for calculation
+    area_polygon = (n * (side ** 2)) / (4 * tan(pi / n))
+    return area_polygon
+
+
+def main():  # Define main function
+    print("Area of Regular Polygon")
+    n = int(input("Number of Sides: "))
+    side = float(input("Sides: "))
+    if n < 0 or side < 0:
+        print("Error: Negative number is not allowed. Please try again")
+    else:
+        print("The Polygon Area:", area(n, side))
+
+
+# Display the result
+main()

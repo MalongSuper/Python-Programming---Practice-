@@ -1,11 +1,20 @@
-# This program computes the area of the pentagon
-from math import sin, sqrt, pi, radians
-# Input the length from the center to a vertex
-r = float(input("Enter the length from the center to a vertex: "))
-if r < 0:
-    print("Error: You cannot use a negative number. "
-          "Please proceed and try again")
-else:
-    s = 2 * r * (sin(pi / 5))
-    Area = (((3 * sqrt(3))/2) * (s ** 2))
-    print("The area of the pentagon is", round(Area, 2))
+# This program computes the area of a pentagon using function
+from math import tan, pi
+
+
+def area(s):  # Define function for calculation
+    area_pentagon = (5 * (s ** 2)) / (4 * tan(pi / 5))
+    return area_pentagon
+
+
+def main():  # Define main function
+    print("Area of Pentagon")
+    s = eval(input("Side: "))
+    if s < 0:
+        print("Error: Negative number is not allowed. Please try again")
+    else:
+        print("The Pentagon Area:", area(s))
+
+
+# Display the result
+main()
